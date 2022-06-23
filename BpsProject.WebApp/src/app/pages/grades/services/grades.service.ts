@@ -1,6 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 import { Grade } from '../grade/interfaces/grade.interface';
 
 
@@ -10,11 +11,42 @@ import { Grade } from '../grade/interfaces/grade.interface';
 
 export class GradesService {
 
-    private apiURL = '/api/GradesManager/GetAll';
+    private apiURL = '/api/GradesManager';
+    private complementPath!:string;
+    headers = new HttpHeaders().set('Content-Type', 'application/json');
 
     constructor(private http: HttpClient) { }
 
-    getGrades():Observable<any>{
-        return this.http.get<Grade[]>(this.apiURL);
+    getGrades():Observable<Grade[]>{
+        this.complementPath = 'GetAll'
+        return this.http.get<Grade[]>(`${this.apiURL}/${this.complementPath}`).pipe(
+            catchError(this.handleError)
+        );
     }
+
+    getGradesByStudent(studentId: string): Observable<Grade[]> {
+        this.complementPath = 'GetByStudent'
+        return this.http.get<Grade[]>(`${this.apiURL}/${this.complementPath}/${studentId}`).pipe(
+            catchError(this.handleError)
+        );
+    }
+
+    addGrade(data: Grade): Observable<any> {
+        this.complementPath = 'AddGrade'
+        return this.http.post(`${this.apiURL}/${this.complementPath}`, data).pipe(
+            catchError(this.handleError)
+        );
+    }
+    
+    handleError(error: HttpErrorResponse) {
+        if (error.error instanceof ErrorEvent) {
+            console.error('A ocurrido un error:', error.error.message);
+        } else {
+            console.error(
+            `Backend ha retornado el codigo: ${error.status}, ` +
+            `Mensaje: ${error.error}`);
+        }
+        return throwError(
+            'A ocurrido un error inesperado, por favor intente más tarde');
+    };
 }
