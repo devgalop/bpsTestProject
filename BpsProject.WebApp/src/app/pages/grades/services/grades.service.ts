@@ -10,7 +10,7 @@ import { Grade } from '../grade/interfaces/grade.interface';
 
 export class GradesService {
 
-    private apiURL = '/GradeService.svc/Grades/GetAll';
+    private apiURL = '/api/GradesManager/GetAll';
 
     constructor(private http: HttpClient) { }
 

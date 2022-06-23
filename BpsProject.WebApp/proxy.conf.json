@@ -1,6 +1,6 @@
 {
-    "/GradeService.svc/*":{
-        "target":"http://localhost:53265",
+    "/api/*":{
+        "target":"https://localhost:44304",
         "secure":false,
         "logLevel":"debug"
     }
