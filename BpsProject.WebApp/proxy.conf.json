@@ -1,0 +1,7 @@
+{
+    "/GradeService.svc/*":{
+        "target":"http://localhost:53265",
+        "secure":false,
+        "logLevel":"debug"
+    }
+}
