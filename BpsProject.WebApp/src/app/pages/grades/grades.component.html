@@ -3,6 +3,10 @@
         (click)="addNewGrade()">
         Agregar Nota <mat-icon>library_add</mat-icon>
     </button>
+    <button mat-flat-button class="btn btn-primary add-grade"
+        (click)="goToBack()">
+        Regresar <mat-icon>keyboard_backspace</mat-icon>
+    </button>
 </ng-container>
 
 <section class="table">
@@ -24,7 +28,8 @@
                         (click)="onGradeUpdated(grade)">
                         <mat-icon>build</mat-icon>
                     </button>
-                    <button mat-flat-button class="btn btn-danger">
+                    <button mat-flat-button class="btn btn-danger"
+                        (click)="onGradeDeleted(grade.Id)">
                         <mat-icon>delete</mat-icon>
                     </button>
                 </td>

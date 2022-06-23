@@ -33,8 +33,18 @@ export class GradesComponent implements OnInit {
     this._route.navigate(['/grades/update-grade'],{state: grade});
   }
 
-  onGradeDeleted(id: number):void {
+  goToBack():void{
+    this._route.navigate(['/']);
+  }
 
+  onGradeDeleted(id: number):void {
+    console.log("Nota a borrar: "+ id );
+    if (confirm('Esta seguro que desea elminar este registro?')) {
+      this.gradesSvc.deleteGrade(id).subscribe();
+      this._route.navigate(['/grades']);
+    } else {
+      this._route.navigate(['/grades']);
+    }
   }
 
 }

@@ -45,6 +45,13 @@ export class GradesService {
             catchError(this.handleError)
         );
     }
+
+    deleteGrade(id:number): Observable<any>{
+        this.complementPath = 'DeleteGrade'
+        return this.http.delete(`${this.apiURL}/${this.complementPath}/${id}`).pipe(
+            catchError(this.handleError)
+        );
+    }
     
     handleError(error: HttpErrorResponse) {
         if (error.error instanceof ErrorEvent) {
