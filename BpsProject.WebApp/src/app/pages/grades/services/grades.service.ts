@@ -38,6 +38,13 @@ export class GradesService {
             catchError(this.handleError)
         );
     }
+
+    updateGrade(data: Grade): Observable<any> {
+        this.complementPath = 'UpdateGrade'
+        return this.http.post(`${this.apiURL}/${this.complementPath}`, data).pipe(
+            catchError(this.handleError)
+        );
+    }
     
     handleError(error: HttpErrorResponse) {
         if (error.error instanceof ErrorEvent) {

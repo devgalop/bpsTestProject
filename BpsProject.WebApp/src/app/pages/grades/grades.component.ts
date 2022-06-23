@@ -30,6 +30,7 @@ export class GradesComponent implements OnInit {
 
   onGradeUpdated(grade: Grade):void {
     console.log("Nota seleccionada: "+ grade.Id + " - "+ grade.Name);
+    this._route.navigate(['/grades/update-grade'],{state: grade});
   }
 
   onGradeDeleted(id: number):void {
