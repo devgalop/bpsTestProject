@@ -1,0 +1,44 @@
+.table {
+    margin-left: 0px;
+    margin-top:10px;
+    margin-right: 0px;
+    padding-left: 20px;
+    padding-right: 20px;
+    max-width: 100%;
+}
+.table-data:hover{
+    background-color: #ddd;
+}
+
+td{
+    border: 1px solid #ddd;
+    text-align: center;
+    padding: 8px;
+}
+
+th{
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    min-width: 100px;
+    background-color: #304ffe;
+    color: white;
+}
+
+.btn:hover{
+    background-color: #a0c8cc
+}
+
+.btn{
+    margin-left: 2px;
+    margin-right: 2px;
+}
+.add-grade{
+    margin-top:15px;
+    margin-left: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    max-width: 100%;
+}
+
+

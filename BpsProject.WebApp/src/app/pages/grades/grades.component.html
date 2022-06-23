@@ -1,0 +1,40 @@
+<ng-container>
+    <button mat-flat-button class="btn btn-success add-grade"
+        (click)="addNewGrade()">
+        Agregar Nota <mat-icon>library_add</mat-icon>
+    </button>
+    <button mat-flat-button class="btn btn-primary add-grade"
+        (click)="goToBack()">
+        Regresar <mat-icon>keyboard_backspace</mat-icon>
+    </button>
+</ng-container>
+
+<section class="table">
+    <table>
+        <thead>
+            <tr>
+                <th *ngFor="let column of displayColumns">{{column}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="table-data" *ngFor="let grade of grades">
+                <td>{{grade.Id}}</td>
+                <td>{{grade.Name}}</td>
+                <td>{{grade.Value}}</td>
+                <td>{{grade.StudentId}}</td>
+                <td>{{grade.TeacherId}}</td>
+                <td>
+                    <button mat-flat-button class="btn btn-warning"
+                        (click)="onGradeUpdated(grade)">
+                        <mat-icon>build</mat-icon>
+                    </button>
+                    <button mat-flat-button class="btn btn-danger"
+                        (click)="onGradeDeleted(grade.Id)">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </td>
+            </tr>
+            
+        </tbody>
+    </table>
+</section>

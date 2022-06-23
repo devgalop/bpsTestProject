@@ -1,0 +1,18 @@
+<section class="modules">
+    <mat-card class="card"  
+        *ngFor="let module of modulesAvailables"
+    >
+        <mat-card-title>
+        {{module.name}}
+        </mat-card-title>
+        <mat-card-content>
+        {{module.description}}
+        </mat-card-content>
+        <mat-card-actions>
+        <button mat-flat-button color="primary" 
+                (click) ="goTo(module.route)"> 
+                Ir <mat-icon>input icon</mat-icon>
+        </button>
+        </mat-card-actions>
+    </mat-card>
+</section>

@@ -1,0 +1,36 @@
+<div class="form">
+    <h2>Formulario de actualizacion a nota</h2>
+    <form >
+        <div class="mb-3">
+            <label for="id" class="form-label">Id Nota: {{grade.Id}}</label>
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Descripcion de la nota: </label>
+            <input type="text" [(ngModel)]="grade.Name" name="description" class="form-control" id="description" placeholder="Descripcion nota ..." required>
+        </div>
+        <div class="mb-3">
+            <label for="value" class="form-label">Calificacion obtenida:</label>
+            <input type="number" [(ngModel)]="grade.Value" name="value" class="form-control" id="value" placeholder="" required>
+        </div>
+        <div class="mb-3">
+            <label for="idStudent" class="form-label">Id Estudiante: </label>
+            <input type="number" [(ngModel)]="grade.StudentId" name="idStudent" class="form-control" id="idStudent" placeholder="" required>
+        </div>
+        <div class="mb-3">
+            <label for="idTeacher" class="form-label">Id Profesor:</label>
+            <input type="number"  [(ngModel)]="grade.TeacherId" name="idTeacher" class="form-control" id="idTeacher" placeholder="" required>
+        </div>
+        
+        <div class="mb-3">
+            <button mat-flat-button class="btn btn-warning"
+            (click)="updateGrade(grade)"> 
+            Guardar Nota <mat-icon>save</mat-icon>
+            </button>
+            <button mat-flat-button class="btn btn-primary"
+            (click)="goToBack()"> 
+            Regresar <mat-icon>keyboard_backspace</mat-icon>
+            </button>
+        </div>
+        
+    </form>
+</div>
