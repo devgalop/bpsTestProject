@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Grade } from './grade/interfaces/grade.interface';
+import { Grade } from './interfaces/grade.interface';
 import { tap } from 'rxjs/operators';
 import { GradesService } from './services/grades.service';
 
@@ -21,6 +21,18 @@ export class GradesComponent implements OnInit {
       tap( (grades : Grade[]) => this.grades = grades)
     )
     .subscribe();
+  }
+
+  onGradeSelected(grade: Grade):void {
+
+  }
+
+  onGradeUpdated(grade: Grade):void {
+
+  }
+
+  onGradeDeleted(id: number):void {
+
   }
 
 }

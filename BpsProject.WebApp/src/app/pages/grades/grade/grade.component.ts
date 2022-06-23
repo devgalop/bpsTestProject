@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Grade } from './interfaces/grade.interface';
+import { Grade } from '../interfaces/grade.interface';
 
 @Component({
   selector: 'app-grade',
@@ -7,7 +7,6 @@ import { Grade } from './interfaces/grade.interface';
   styleUrls: ['./grade.component.css']
 })
 export class GradeComponent implements OnInit {
-  @Input() grade!: Grade;
   constructor() { }
 
   ngOnInit(): void {

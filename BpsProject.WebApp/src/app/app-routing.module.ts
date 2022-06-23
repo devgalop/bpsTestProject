@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { NotFoundComponent } from './shared/components/notfound/notfound.component';
 
 const routes: Routes = [
   { path: '', loadChildren: () => import('./pages/index/index.module').then(m => m.IndexModule) },
-  { path: 'students', loadChildren: () => import('./pages/students/students.module').then(m => m.StudentsModule) },
   { path: 'grades', loadChildren: () => import('./pages/grades/grades.module').then(m => m.GradesModule) },
-  { path: '**', redirectTo: '', pathMatch: 'full'}
+  { path: '**', component:NotFoundComponent}
 ];
 
 @NgModule({

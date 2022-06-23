@@ -2,7 +2,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { Grade } from '../grade/interfaces/grade.interface';
+import { Grade } from '../interfaces/grade.interface';
 
 
 @Injectable({
