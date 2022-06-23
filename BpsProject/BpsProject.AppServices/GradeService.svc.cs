@@ -35,6 +35,26 @@ namespace BpsProject.AppServices
             }
         }
 
+        public bool DeleteGrade(string gradeId)
+        {
+            try
+            {
+                int gradeIdTransformed = Int32.Parse(gradeId);
+                using (DataModel dbContext = new DataModel())
+                {
+                    GRADE gradeFound = dbContext.GRADEs.Where(g => g.ID == gradeIdTransformed).FirstOrDefault();
+                    if (gradeFound == null) return false;
+                    dbContext.GRADEs.Remove(gradeFound);
+                    dbContext.SaveChanges();
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
         public List<GradesModel> GetAll()
         {
             try

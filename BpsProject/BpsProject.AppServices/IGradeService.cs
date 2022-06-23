@@ -29,6 +29,10 @@ namespace BpsProject.AppServices
         [WebInvoke(UriTemplate = "Grades/UpdateGrade", Method = "PUT")]
         bool UpdateGrade(UpdateGradeModel model);
 
+        [OperationContract]
+        [WebInvoke(UriTemplate = "Grades/DeleteGrade/{gradeId}", Method = "DELETE")]
+        bool DeleteGrade(string gradeId);
+
 
     }
 
