@@ -1,5 +1,8 @@
 <ng-container>
-    <button mat-flat-button class="btn btn-success add-grade">Agregar Nota <mat-icon>library_add</mat-icon></button>
+    <button mat-flat-button class="btn btn-success add-grade"
+        (click)="addNewGrade()">
+        Agregar Nota <mat-icon>library_add</mat-icon>
+    </button>
 </ng-container>
 
 <section class="table">
@@ -17,9 +20,13 @@
                 <td>{{grade.StudentId}}</td>
                 <td>{{grade.TeacherId}}</td>
                 <td>
-                    <button mat-flat-button class="btn btn-primary"><mat-icon>find_in_page</mat-icon></button>
-                    <button mat-flat-button class="btn btn-warning"><mat-icon>build</mat-icon></button>
-                    <button mat-flat-button class="btn btn-danger"><mat-icon>delete</mat-icon></button>
+                    <button mat-flat-button class="btn btn-warning"
+                        (click)="onGradeUpdated(grade)">
+                        <mat-icon>build</mat-icon>
+                    </button>
+                    <button mat-flat-button class="btn btn-danger">
+                        <mat-icon>delete</mat-icon>
+                    </button>
                 </td>
             </tr>
             

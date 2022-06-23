@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Grade } from './interfaces/grade.interface';
 import { tap } from 'rxjs/operators';
 import { GradesService } from './services/grades.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-grades',
@@ -13,7 +14,7 @@ export class GradesComponent implements OnInit {
   grades!:Grade[];
   displayColumns= ['Id', 'Descripcion', 'Calificacion', 'Id Estudiante', 'Id Profesor', 'Acciones']
 
-  constructor(private gradesSvc : GradesService) { }
+  constructor(private gradesSvc : GradesService, private _route: Router) { }
 
   ngOnInit(): void {
     this.gradesSvc.getGrades()
@@ -23,12 +24,12 @@ export class GradesComponent implements OnInit {
     .subscribe();
   }
 
-  onGradeSelected(grade: Grade):void {
-
+  addNewGrade(){
+    this._route.navigate(['grades/add-grade']);
   }
 
   onGradeUpdated(grade: Grade):void {
-
+    console.log("Nota seleccionada: "+ grade.Id + " - "+ grade.Name);
   }
 
   onGradeDeleted(id: number):void {

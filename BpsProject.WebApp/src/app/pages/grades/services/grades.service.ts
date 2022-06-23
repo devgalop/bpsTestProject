@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Grade } from '../interfaces/grade.interface';
+import { NewGrade } from '../interfaces/newGrade.interface';
 
 
 @Injectable({
@@ -31,7 +32,7 @@ export class GradesService {
         );
     }
 
-    addGrade(data: Grade): Observable<any> {
+    addGrade(data: NewGrade): Observable<any> {
         this.complementPath = 'AddGrade'
         return this.http.post(`${this.apiURL}/${this.complementPath}`, data).pipe(
             catchError(this.handleError)
