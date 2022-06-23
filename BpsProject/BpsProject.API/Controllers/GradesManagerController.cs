@@ -121,5 +121,29 @@ namespace BpsProject.API.Controllers
                 return BadRequest(ex);
             }
         }
+
+        [HttpDelete("DeleteGrade/{gradeId}")]
+        public async Task<IActionResult> DeleteGrade(string gradeId)
+        {
+            try
+            {
+                RequestModel request = new RequestModel()
+                {
+                    UrlBase = _sectionGrades.GetValue<string>("UrlBase"),
+                    ServicePrefix = _sectionGrades.GetValue<string>("Prefix"),
+                    Controller = "/Grades/DeleteGrade"
+                };
+
+                ResponseModel response = await _apiConsumer.DeleteAsync(request,gradeId);
+
+                if (!response.IsSuccess) return BadRequest("Error Interno");
+
+                return Ok(response.Result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
+        }
     }
 }
