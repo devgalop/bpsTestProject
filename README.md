@@ -60,6 +60,8 @@ dotnet run BpsProject.AppServices.csproj
 
 ## Instructivo paso a paso para la configuración del API Rest.
 
+![API](/recursos/api.png "API")
+
 1. **Ejecutar proyecto** Ejecutar el proyecto con el comando
 
 ```
@@ -70,6 +72,9 @@ dotnet run BpsProject.API.csproj
 
 2. **Configurar proxy.conf.json:** Una vez clonado el repositorio, se procede a abrir el proyecto _BpsProject.WebApp_ el cual es el encargado del front-end de la aplicación.
    Allí encontrará un archivo llamado _proxy.conf.json_. Deberá modificar el campo _target_ con la URL dónde esté ubicada el API configurada en el **Instructivo paso a paso para la configuración del API.**
+
+   ![proxyfile](/recursos/proxyfile.png "proxyfile")
+
 3. **Ejecución de la aplicación:** Para ejecutar la aplicación es necesario tener previamente corriendo el proyecto API y el servicio WCF.
    Para correr la aplicación angular, se escribe en la terminal el comando
 
